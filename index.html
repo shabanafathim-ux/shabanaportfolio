@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shabana Fathim — AI Governance & PMO Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#16273D;
+    --navy-soft:#1F3753;
+    --teal:#2D7D8C;
+    --teal-soft:#E4F0F1;
+    --paper:#F7F5F0;
+    --paper-2:#FBFAF7;
+    --ink:#2B2B2B;
+    --ink-soft:#5B6470;
+    --gold:#B8923D;
+    --line:#DDD7C8;
+    --radius:2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3,h4{
+    font-family:'Source Serif 4',serif;
+    color:var(--navy);
+    margin:0;
+  }
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:var(--teal);}
+  .wrap{max-width:980px;margin:0 auto;padding:0 32px;}
+  @media (max-width:640px){.wrap{padding:0 20px;}}
+
+  /* ===== NAV ===== */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,245,240,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px;}
+  .nav-name{font-family:'Source Serif 4',serif;font-weight:700;font-size:1.05rem;color:var(--navy);}
+  .nav-links{display:flex;gap:24px;font-size:0.82rem;letter-spacing:.03em;text-transform:uppercase;}
+  .nav-links a{color:var(--ink-soft);text-decoration:none;font-weight:500;}
+  .nav-links a:hover{color:var(--teal);}
+  @media (max-width:760px){.nav-links{display:none;}}
+
+  /* ===== COVER / HERO ===== */
+  header.cover{
+    background:linear-gradient(180deg, var(--navy) 0%, var(--navy-soft) 100%);
+    color:#EDEFF2;
+    padding:90px 0 70px;
+    position:relative;
+    overflow:hidden;
+  }
+  header.cover::after{
+    content:"";
+    position:absolute;right:-120px;top:-120px;
+    width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle, rgba(45,125,140,0.28), transparent 70%);
+  }
+  .doc-id{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.74rem;
+    letter-spacing:.08em;
+    color:#8FA3B8;
+    text-transform:uppercase;
+    border:1px solid rgba(143,163,184,0.4);
+    display:inline-block;
+    padding:4px 10px;
+    border-radius:2px;
+    margin-bottom:24px;
+  }
+  .cover-name{font-size:2.6rem;font-weight:700;line-height:1.15;margin-bottom:8px;color:#FFFFFF;}
+  .cover-role{
+    font-family:'Inter',sans-serif;
+    color:var(--teal);
+    font-size:1.05rem;
+    font-weight:600;
+    letter-spacing:.02em;
+    margin-bottom:22px;
+  }
+  .cover-summary{
+    max-width:640px;
+    font-size:1.02rem;
+    color:#C9D1DB;
+    margin-bottom:30px;
+    text-align:justify;
+  }
+  .cover-meta{
+    display:flex;flex-wrap:wrap;gap:10px;
+    margin-bottom:30px;
+  }
+  .pill{
+    font-size:0.74rem;
+    font-family:'JetBrains Mono',monospace;
+    background:rgba(255,255,255,0.07);
+    border:1px solid rgba(255,255,255,0.18);
+    color:#D8DEE6;
+    padding:5px 11px;
+    border-radius:20px;
+  }
+  .pill.gold{border-color:rgba(184,146,61,0.6);color:#E8D5A8;background:rgba(184,146,61,0.12);}
+  .cover-contact{
+    display:flex;gap:22px;flex-wrap:wrap;
+    font-size:0.88rem;color:#A9B5C2;
+  }
+  .cover-contact a{color:#CFE6E9;text-decoration:none;}
+
+  /* ===== SECTION SHELL ===== */
+  section{padding:64px 0;}
+  section.alt{background:var(--paper-2);}
+  .section-head{
+    display:flex;align-items:baseline;gap:14px;
+    margin-bottom:34px;
+    border-bottom:2px solid var(--navy);
+    padding-bottom:14px;
+  }
+  .section-num{
+    font-family:'JetBrains Mono',monospace;
+    color:var(--teal);
+    font-size:0.95rem;
+    font-weight:500;
+  }
+  .section-head h2{font-size:1.5rem;}
+  .section-sub{color:var(--ink-soft);font-size:0.95rem;margin:-22px 0 30px;}
+
+  /* ===== PROFILE ===== */
+  .profile-text{font-size:1.05rem;max-width:760px;color:var(--ink);text-align:justify;}
+  .profile-text strong{color:var(--navy);}
+
+  /* ===== SKILLS GRID ===== */
+  .skills-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:18px;
+  }
+  @media (max-width:680px){.skills-grid{grid-template-columns:1fr;}}
+  .skill-card{
+    background:#fff;border:1px solid var(--line);
+    border-left:3px solid var(--teal);
+    padding:18px 20px;
+    border-radius:var(--radius);
+  }
+  .skill-card h4{font-size:0.95rem;color:var(--navy);margin-bottom:9px;font-family:'Inter',sans-serif;font-weight:700;letter-spacing:.01em;}
+  .skill-card ul{margin:0;padding-left:18px;font-size:0.88rem;color:var(--ink-soft);}
+  .skill-card li{margin-bottom:4px;}
+
+  /* ===== CASE STUDIES ===== */
+  .case{
+    background:#fff;border:1px solid var(--line);
+    border-radius:var(--radius);
+    margin-bottom:28px;
+    overflow:hidden;
+  }
+  .case-header{
+    background:var(--navy);color:#fff;
+    padding:18px 26px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
+  }
+  .case-header h3{color:#fff;font-size:1.15rem;}
+  .case-tag{
+    font-family:'JetBrains Mono',monospace;font-size:0.72rem;
+    background:rgba(255,255,255,0.12);padding:4px 10px;border-radius:20px;color:#CFE6E9;
+  }
+  .case-body{padding:26px;}
+  .case-row{
+    display:grid;grid-template-columns:170px 1fr;gap:18px;
+    padding:13px 0;border-bottom:1px solid #EFEBE0;
+    font-size:0.92rem;
+  }
+  .case-row:last-child{border-bottom:none;}
+  .case-row dt{
+    font-family:'JetBrains Mono',monospace;font-size:0.74rem;
+    text-transform:uppercase;letter-spacing:.05em;
+    color:var(--teal);font-weight:500;align-self:start;padding-top:2px;
+  }
+  .case-row dd{margin:0;color:var(--ink);text-align:justify;}
+  @media (max-width:600px){.case-row{grid-template-columns:1fr;gap:4px;}}
+  .outcome-strip{
+    background:var(--teal-soft);
+    border-top:1px solid var(--line);
+    padding:18px 26px;
+    font-size:0.93rem;
+    text-align:justify;
+  }
+  .outcome-strip dt{color:var(--navy);font-weight:700;font-family:'Inter',sans-serif;margin-bottom:4px;font-size:0.8rem;text-transform:uppercase;letter-spacing:.04em;}
+
+  /* ===== ARTIFACT CARDS ===== */
+  .artifact-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+  }
+  @media (max-width:900px){.artifact-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:600px){.artifact-grid{grid-template-columns:1fr;}}
+  .artifact{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .artifact-strip{
+    background:repeating-linear-gradient(135deg, var(--navy), var(--navy) 8px, var(--navy-soft) 8px, var(--navy-soft) 16px);
+    height:6px;
+  }
+  .artifact-id{
+    font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:var(--ink-soft);
+    padding:12px 16px 0;letter-spacing:.03em;
+  }
+  .artifact h4{
+    font-family:'Inter',sans-serif;font-weight:700;font-size:0.96rem;
+    padding:6px 16px 10px;color:var(--navy);
+  }
+  .artifact p{
+    font-size:0.85rem;color:var(--ink-soft);
+    padding:0 16px 18px;margin:0;
+  }
+
+  /* ===== TOOLS ===== */
+  .tool-row{display:flex;flex-wrap:wrap;gap:10px;}
+  .tool-tag{
+    font-family:'JetBrains Mono',monospace;font-size:0.78rem;
+    background:#fff;border:1px solid var(--line);
+    padding:7px 13px;border-radius:20px;color:var(--navy);
+  }
+
+  /* ===== ACHIEVEMENTS ===== */
+  .achieve-list{list-style:none;margin:0;padding:0;}
+  .achieve-list li{
+    display:flex;gap:16px;
+    padding:16px 0;border-bottom:1px solid #EFEBE0;
+    font-size:0.97rem;
+  }
+  .achieve-list li:last-child{border-bottom:none;}
+  .achieve-num{
+    font-family:'JetBrains Mono',monospace;color:var(--teal);font-weight:600;
+    flex-shrink:0;width:28px;
+  }
+
+  /* ===== LINKEDIN FEATURED ===== */
+  .featured-box{
+    background:var(--navy);color:#E5EAF0;
+    padding:36px 32px;border-radius:var(--radius);
+  }
+  .featured-box h3{color:#fff;margin-bottom:14px;font-size:1.15rem;}
+  .featured-box p{color:#C2CCD8;font-size:0.97rem;}
+  .copy-btn{
+    margin-top:18px;display:inline-block;
+    background:var(--teal);color:#fff;border:none;
+    padding:10px 18px;border-radius:3px;font-family:'Inter',sans-serif;
+    font-size:0.85rem;font-weight:600;cursor:pointer;
+  }
+  .copy-btn:hover{background:#256B78;}
+
+  footer{
+    padding:36px 0 50px;text-align:center;
+    color:var(--ink-soft);font-size:0.85rem;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-name">Shabana Fathim</div>
+    <div class="nav-links">
+      <a href="#profile">Profile</a>
+      <a href="#skills">Skills</a>
+      <a href="#cases">Case Studies</a>
+      <a href="#artifacts">Artifacts</a>
+      <a href="#tools">Tools</a>
+      <a href="#achievements">Achievements</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ COVER ============ -->
+<header class="cover">
+  <div class="wrap">
+    <div class="doc-id">PORTFOLIO / AI-GOV-PMO / 2026</div>
+    <h1 class="cover-name">Shabana Fathim</h1>
+    <div class="cover-role">AI Governance &amp; Risk &nbsp;·&nbsp; PMO &amp; Program Delivery &nbsp;·&nbsp; Regulated Technology</div>
+    <p class="cover-summary">
+      12+ years building and governing technology programs across UAE-regulated financial services, public-sector innovation,
+      and AI-enabled healthcare — with hands-on experience operationalising ISO/IEC 42001 in live clinical AI deployments
+      and running PMO frameworks for multi-million-dollar government technology portfolios.
+    </p>
+    <div class="cover-meta">
+      <span class="pill gold">ISO/IEC 42001 Lead Implementer</span>
+      <span class="pill gold">GARP Risk and AI (RAI)</span>
+      <span class="pill gold">PRINCE2 Agile Practitioner</span>
+      <span class="pill">MBA — Data Analytics</span>
+    </div>
+    <div class="cover-contact">
+      <span>📍 Dubai, UAE</span>
+      <a href="mailto:shabanafathim@gmail.com">shabanafathim@gmail.com</a>
+      <a href="https://linkedin.com/in/shabana-fathim" target="_blank">linkedin.com/in/shabana-fathim</a>
+      <span>+971-58-298-8557</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PROFILE ============ -->
+<section id="profile">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">01</span><h2>Professional Profile</h2></div>
+    <p class="profile-text">
+      <strong>Senior AI Governance and PMO professional</strong> with 12+ years delivering complex technology programs across
+      UAE Central Bank-regulated financial services, public-sector government innovation, and AI-enabled healthcare.
+      I specialise in operationalising AI governance frameworks — not as compliance paperwork, but as living systems embedded
+      into delivery — having designed and run an ISO/IEC 42001-aligned AI Management System for two clinical AI diagnostic
+      platforms undergoing trial deployment in Kerala's public health system. My PMO background spans an 11+ program portfolio
+      worth USD 3M+, with end-to-end ownership of vendor governance (EOI/RFP/QCBS procurement), risk management, audit readiness,
+      and executive stakeholder reporting. I bring 7+ years of direct UAE regulatory exposure, fluency in translating technical
+      AI risk into language regulators, clinicians, and government leadership can act on, and a track record of building
+      repeatable governance standards that outlast any single project.
+    </p>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="alt" id="skills">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">02</span><h2>Core Skills</h2></div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h4>AI Governance</h4>
+        <ul>
+          <li>AI Management System (AIMS) design — ISO/IEC 42001</li>
+          <li>Model risk controls &amp; lifecycle oversight</li>
+          <li>AI vendor due diligence &amp; third-party risk</li>
+          <li>AI incident response &amp; escalation protocols</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h4>Responsible AI</h4>
+        <ul>
+          <li>Bias evaluation &amp; fairness checkpoints</li>
+          <li>Model explainability standards</li>
+          <li>Human-in-the-loop oversight design</li>
+          <li>Post-deployment monitoring frameworks</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h4>PMO &amp; Program Delivery</h4>
+        <ul>
+          <li>PMO setup &amp; portfolio governance</li>
+          <li>PRINCE2 Agile delivery frameworks</li>
+          <li>RAID logs, milestone dashboards, change control</li>
+          <li>Multi-program, multi-stakeholder coordination</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h4>Risk &amp; Compliance</h4>
+        <ul>
+          <li>Regulatory examination &amp; audit readiness</li>
+          <li>Operational risk frameworks &amp; internal controls</li>
+          <li>VAPT coordination &amp; security compliance touchpoints</li>
+          <li>Audit-trail documentation</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h4>Procurement &amp; Vendor Governance</h4>
+        <ul>
+          <li>EOI / RFP / RFQ / QCBS procurement design</li>
+          <li>Vendor evaluation &amp; contract negotiation</li>
+          <li>SLA management &amp; milestone-based payment</li>
+          <li>Vendor performance monitoring</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h4>Stakeholder Management</h4>
+        <ul>
+          <li>Executive &amp; government leadership engagement</li>
+          <li>Clinical stakeholder coordination</li>
+          <li>Cross-functional, multi-agency alignment</li>
+          <li>Workshop &amp; steering committee facilitation</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h4>Reporting &amp; Dashboards</h4>
+        <ul>
+          <li>Power BI executive dashboards</li>
+          <li>Risk heatmaps &amp; portfolio status reporting</li>
+          <li>MIS &amp; KPI reporting</li>
+          <li>Steering committee &amp; board-level reporting</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h4>Regulated Financial Services</h4>
+        <ul>
+          <li>UAE Central Bank regulatory exposure (7+ yrs)</li>
+          <li>Cards, loans &amp; payments operations</li>
+          <li>Internal audit support &amp; evidence coordination</li>
+          <li>Platform migration &amp; UAT governance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASE STUDY 1 ============ -->
+<section id="cases">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">03</span><h2>Case Study — AI Governance for Clinical AI</h2></div>
+    <div class="case">
+      <div class="case-header">
+        <h3>AI Governance for Clinical Diagnostic Screening</h3>
+        <span class="case-tag">HEALTHCARE · ISO/IEC 42001 · TRIAL DEPLOYMENT</span>
+      </div>
+      <div class="case-body">
+        <dl>
+          <div class="case-row"><dt>Problem</dt><dd>Two AI diagnostic platforms (Diabetic Retinopathy &amp; Cervical Cancer Screening) entered trial deployment within a public healthcare system with no existing governance precedent and clinicians unfamiliar with AI-assisted diagnostics.</dd></div>
+          <div class="case-row"><dt>AI Use Case</dt><dd>Machine learning models trained on clinical imaging data — including annotated pap smear slides — generating diagnostic predictions to support frontline clinical decision-making.</dd></div>
+          <div class="case-row"><dt>Governance Risks</dt><dd>Trust deficit among clinicians; vendor AI capability gaps (platforms built by external startups); absence of regulatory precedent for AI in this healthcare context.</dd></div>
+          <div class="case-row"><dt>Controls Applied</dt><dd>ISO/IEC 42001-aligned AI Management System covering model risk controls, AI vendor due diligence, and end-to-end audit-trail documentation across the trial lifecycle.</dd></div>
+          <div class="case-row"><dt>Human Oversight</dt><dd>Defined clinician-in-the-loop protocols ensuring AI outputs supported, never replaced, diagnostic judgement — with escalation paths for disputed model outputs.</dd></div>
+          <div class="case-row"><dt>Bias &amp; Fairness</dt><dd>Structured bias evaluation checkpoints testing model outputs across patient demographics before and during trial deployment.</dd></div>
+          <div class="case-row"><dt>Performance Monitoring</dt><dd>Sensitivity and specificity metrics tracked and translated into clinically actionable explainability standards for frontline staff.</dd></div>
+          <div class="case-row"><dt>Audit Documentation</dt><dd>Model risk checklists and decision logs maintained throughout, established as repeatable artifacts for future AI procurements.</dd></div>
+        </dl>
+      </div>
+      <div class="outcome-strip">
+        <dt>Outcome</dt>
+        Both platforms progressed through trial deployment with governance built into the design from day one. The model
+        risk checklists and vendor assessment templates were adopted council-wide as the standard for all future AI procurements.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASE STUDY 2 ============ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">04</span><h2>Case Study — Public Sector Digital Transformation</h2></div>
+    <div class="case">
+      <div class="case-header">
+        <h3>State-Wide Consumer Billing Platform — Kerala Water Authority</h3>
+        <span class="case-tag">PMO · PROCUREMENT GOVERNANCE · PILOT-TO-ROLLOUT</span>
+      </div>
+      <div class="case-body">
+        <dl>
+          <div class="case-row"><dt>Objective</dt><dd>Digitise a fragmented manual billing system causing multi-day delays in bill realisation for a state water utility.</dd></div>
+          <div class="case-row"><dt>Stakeholders</dt><dd>Kerala Water Authority leadership (including the Managing Director), technology startups, hardware vendors, and the council's own PMO function.</dd></div>
+          <div class="case-row"><dt>Procurement Approach</dt><dd>Structured EOI/RFP/QCBS-based procurement to select a delivery partner with the right technical capability.</dd></div>
+          <div class="case-row"><dt>Vendor Evaluation</dt><dd>When the originally selected startup proved technically unable to deliver, identified an alternative vendor and proposed an unpaid Proof of Concept to de-risk budget commitment before formal contracting.</dd></div>
+          <div class="case-row"><dt>Risk Management</dt><dd>Maintained structured RAID logs tracking delivery risk, vendor capability risk, and adoption risk throughout the program.</dd></div>
+          <div class="case-row"><dt>Milestone Governance</dt><dd>PRINCE2 Agile-structured milestone tracking from pilot through statewide rollout, with formal acceptance gates at each phase.</dd></div>
+          <div class="case-row"><dt>Reporting Structure</dt><dd>Power BI executive dashboards and direct steering committee reporting to senior Kerala Water Authority leadership.</dd></div>
+        </dl>
+      </div>
+      <div class="outcome-strip">
+        <dt>Outcome</dt>
+        Bill realisation time reduced from 7 days to 3 days — a 57% improvement — with the platform progressing from pilot
+        to full statewide rollout. The replacement vendor's strong performance earned them a follow-on contract with the
+        Kerala State Electricity Board.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI ARTIFACTS ============ -->
+<section id="artifacts">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">05</span><h2>AI Governance Artifacts</h2></div>
+    <p class="section-sub">Representative governance documents built and maintained across AI program delivery.</p>
+    <div class="artifact-grid">
+      <div class="artifact"><div class="artifact-strip"></div><div class="artifact-id">AIG-001</div><h4>AI System Inventory</h4><p>Centralised register of all AI systems in development or deployment, with owner, risk tier, and lifecycle stage.</p></div>
+      <div class="artifact"><div class="artifact-strip"></div><div class="artifact-id">AIG-002</div><h4>AI Risk Assessment Template</h4><p>Structured assessment covering data risk, model risk, bias exposure, and deployment context risk.</p></div>
+      <div class="artifact"><div class="artifact-strip"></div><div class="artifact-id">AIG-003</div><h4>AI Governance Policy Summary</h4><p>One-page policy brief translating ISO/IEC 42001 and NIST AI RMF principles into operational requirements.</p></div>
+      <div class="artifact"><div class="artifact-strip"></div><div class="artifact-id">AIG-004</div><h4>Model Card Template</h4><p>Standardised documentation of model purpose, training data, performance metrics, and known limitations.</p></div>
+      <div class="artifact"><div class="artifact-strip"></div><div class="artifact-id">AIG-005</div><h4>AI Incident Response Plan</h4><p>Defined escalation paths and remediation steps for erroneous or harmful AI model outputs.</p></div>
+      <div class="artifact"><div class="artifact-strip"></div><div class="artifact-id">AIG-006</div><h4>AI Control Checklist</h4><p>Pre-deployment sign-off checklist covering bias testing, explainability, and vendor due diligence.</p></div>
+      <div class="artifact"><div class="artifact-strip"></div><div class="artifact-id">AIG-007</div><h4>Post-Deployment Monitoring Plan</h4><p>Ongoing performance and drift monitoring schedule with defined review cadence and escalation triggers.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PMO ARTIFACTS ============ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">06</span><h2>PMO Artifacts</h2></div>
+    <p class="section-sub">Core governance documents used to run multi-program technology portfolios.</p>
+    <div class="artifact-grid">
+      <div class="artifact"><div class="artifact-strip"></div><div class="artifact-id">PMO-001</div><h4>RAID Log</h4><p>Live register of risks, assumptions, issues, and dependencies tracked across the program portfolio.</p></div>
+      <div class="artifact"><div class="artifact-strip"></div><div class="artifact-id">PMO-002</div><h4>Steering Committee Report</h4><p>Executive-ready summary of status, risk, and decisions required, prepared for senior leadership review.</p></div>
+      <div class="artifact"><div class="artifact-strip"></div><div class="artifact-id">PMO-003</div><h4>Project Status Dashboard</h4><p>Power BI dashboard tracking milestone health, budget burn, and risk heatmaps in real time.</p></div>
+      <div class="artifact"><div class="artifact-strip"></div><div class="artifact-id">PMO-004</div><h4>Milestone Tracker</h4><p>Structured timeline of deliverables, owners, and acceptance criteria across program phases.</p></div>
+      <div class="artifact"><div class="artifact-strip"></div><div class="artifact-id">PMO-005</div><h4>Vendor Evaluation Matrix</h4><p>Weighted scoring framework used in EOI/RFP/QCBS procurement to select delivery partners.</p></div>
+      <div class="artifact"><div class="artifact-strip"></div><div class="artifact-id">PMO-006</div><h4>Change Request Tracker</h4><p>Formal log of scope, schedule, and budget change requests with approval status and impact assessment.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOOLS ============ -->
+<section id="tools">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">07</span><h2>Tools &amp; Frameworks</h2></div>
+    <div class="tool-row">
+      <span class="tool-tag">ISO/IEC 42001</span>
+      <span class="tool-tag">NIST AI RMF</span>
+      <span class="tool-tag">EU AI Act</span>
+      <span class="tool-tag">OECD AI Principles</span>
+      <span class="tool-tag">Model Cards</span>
+      <span class="tool-tag">Risk Registers</span>
+      <span class="tool-tag">RAID Logs</span>
+      <span class="tool-tag">PRINCE2 Agile</span>
+      <span class="tool-tag">Power BI</span>
+      <span class="tool-tag">JIRA</span>
+      <span class="tool-tag">MS Project</span>
+      <span class="tool-tag">Microsoft 365</span>
+      <span class="tool-tag">Procurement Evaluation Frameworks</span>
+      <span class="tool-tag">QCBS / RFP / EOI</span>
+      <span class="tool-tag">Audit Documentation</span>
+      <span class="tool-tag">GARP Risk and AI (RAI)</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACHIEVEMENTS ============ -->
+<section class="alt" id="achievements">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">08</span><h2>Achievement Highlights</h2></div>
+    <ul class="achieve-list">
+      <li><span class="achieve-num">01</span> Designed and operationalised an ISO/IEC 42001-aligned AI Management System for two clinical AI diagnostic platforms — the first AI governance framework of its kind within the council's technology portfolio.</li>
+      <li><span class="achieve-num">02</span> Reduced consumer bill realisation time by 57% (7 days to 3 days) through a state-wide digital billing platform taken from pilot to full statewide rollout.</li>
+      <li><span class="achieve-num">03</span> Owned a USD 3M+ technology portfolio spanning 11+ concurrent programs across healthcare, public services, and regulated environments.</li>
+      <li><span class="achieve-num">04</span> Governed full vendor lifecycle for 15+ technology vendors and startups, from EOI/RFP/QCBS selection through contract negotiation and SLA-driven performance monitoring.</li>
+      <li><span class="achieve-num">05</span> Authored model risk checklists and AI vendor assessment templates subsequently adopted as the standard for all AI procurements across the organisation.</li>
+      <li><span class="achieve-num">06</span> Built a PRINCE2 Agile-structured PMO framework from the ground up — RAID logs, milestone dashboards, change control — deployed across JIRA and Microsoft 365 for full executive visibility.</li>
+      <li><span class="achieve-num">07</span> Brought 7+ years of UAE Central Bank-regulated financial services experience, including platform migration, regulatory audit support, and operational risk governance.</li>
+      <li><span class="achieve-num">08</span> Resolved a critical vendor capability failure mid-project by structuring a no-cost Proof of Concept with an alternative partner — protecting client budget while keeping delivery on track.</li>
+      <li><span class="achieve-num">09</span> Designed IoT-based traceability for an agricultural production platform, enabling farmer-level identification and crop performance insights for data-driven government decision-making.</li>
+      <li><span class="achieve-num">10</span> Presented program outcomes and governance recommendations directly to senior government and authority leadership, including the Managing Director of Kerala Water Authority.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ LINKEDIN FEATURED ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">09</span><h2>LinkedIn Featured Summary</h2></div>
+    <div class="featured-box">
+      <h3>What This Portfolio Demonstrates</h3>
+      <p id="featuredText">
+        A working portfolio of AI governance and PMO delivery across regulated industries — built from real engagements,
+        not theory. Inside: how I operationalised ISO/IEC 42001 for live clinical AI trials, how I took a government
+        billing platform from pilot to statewide rollout with a 57% efficiency gain, and the actual governance artifacts
+        (risk registers, model cards, RAID logs, vendor evaluation frameworks) I use to run technology programs end to end.
+        If you're hiring for AI Governance, Responsible AI, PMO, or Transformation roles in regulated environments, this
+        is the evidence behind the CV.
+      </p>
+      <button class="copy-btn" onclick="copyFeatured()">Copy summary text</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Shabana Fathim &nbsp;·&nbsp; AI Governance &amp; PMO Portfolio &nbsp;·&nbsp; Dubai, UAE &nbsp;·&nbsp; 2026
+</footer>
+
+<script>
+function copyFeatured(){
+  const text = document.getElementById('featuredText').innerText.trim();
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn = document.querySelector('.copy-btn');
+    const original = btn.innerText;
+    btn.innerText = 'Copied!';
+    setTimeout(()=>{ btn.innerText = original; }, 1800);
+  });
+}
+</script>
+
+</body>
+</html>
